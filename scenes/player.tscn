@@ -55,7 +55,7 @@ radius = 12.1655
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(34, 26)
 
-[node name="player" type="RigidBody2D"]
+[node name="player" type="RigidBody2D" groups=["player"]]
 script = ExtResource("1_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://btr75ja4aag6o"]
+
+[ext_resource type="Texture2D" uid="uid://bcdspfodcufqf" path="res://FBAssets/FBsprites/pipe-green.png" id="1_7soh5"]
+[ext_resource type="Script" uid="uid://bi0pl733qyuyv" path="res://scripts/obstacles.gd" id="1_b1ion"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ion"]
+size = Vector2(52, 427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw70g"]
+size = Vector2(50.5, 402)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fc1n"]
+size = Vector2(50.5, 131)
+
+[node name="obstacles" type="Node2D"]
+script = ExtResource("1_b1ion")
+
+[node name="tuberia1" type="Area2D" parent="."]
+position = Vector2(-2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="tuberia1"]
+position = Vector2(268, -8.62567)
+rotation = 3.14159
+scale = Vector2(1, 1.31484)
+texture = ExtResource("1_7soh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tuberia1"]
+position = Vector2(269, -13.5)
+shape = SubResource("RectangleShape2D_b1ion")
+
+[node name="tuberia2" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="tuberia2"]
+position = Vector2(268, 552)
+scale = Vector2(1, 1.25)
+texture = ExtResource("1_7soh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tuberia2"]
+position = Vector2(267.75, 550)
+shape = SubResource("RectangleShape2D_rw70g")
+
+[node name="score" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="score"]
+position = Vector2(266.75, 273.5)
+shape = SubResource("RectangleShape2D_2fc1n")
+
+[connection signal="body_entered" from="tuberia1" to="." method="_on_tuberia_1_body_entered"]
+[connection signal="body_entered" from="tuberia2" to="." method="_on_tuberia_2_body_entered"]
+[connection signal="body_entered" from="score" to="." method="_on_score_body_entered"]
