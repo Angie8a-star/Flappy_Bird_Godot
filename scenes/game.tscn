@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7o47jaw4hoqy"]
+[gd_scene load_steps=7 format=3 uid="uid://b7o47jaw4hoqy"]
 
 [ext_resource type="Script" uid="uid://doha4xpnctip7" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bp8ylueanynyk" path="res://FBAssets/FBsprites/base.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bdbruxdu47sxb" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dbblpvw7dxnd" path="res://scenes/parallax_background.tscn" id="4_lbhrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
 size = Vector2(397, 38)
@@ -37,6 +38,9 @@ shape = SubResource("RectangleShape2D_lnu2h")
 [node name="player" parent="." instance=ExtResource("2_yqjtg")]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_lbhrr")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

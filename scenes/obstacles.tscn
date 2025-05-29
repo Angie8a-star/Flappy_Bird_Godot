@@ -10,7 +10,7 @@ size = Vector2(52, 427)
 size = Vector2(50.5, 402)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fc1n"]
-size = Vector2(50.5, 131)
+size = Vector2(49, 136)
 
 [node name="obstacles" type="Node2D"]
 script = ExtResource("1_b1ion")
@@ -19,30 +19,30 @@ script = ExtResource("1_b1ion")
 position = Vector2(-2, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="tuberia1"]
-position = Vector2(268, -8.62567)
+position = Vector2(180, -71.626)
 rotation = 3.14159
 scale = Vector2(1, 1.31484)
 texture = ExtResource("1_7soh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tuberia1"]
-position = Vector2(269, -13.5)
+position = Vector2(181, -74)
 shape = SubResource("RectangleShape2D_b1ion")
 
 [node name="tuberia2" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="tuberia2"]
-position = Vector2(268, 552)
+position = Vector2(180, 485)
 scale = Vector2(1, 1.25)
 texture = ExtResource("1_7soh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tuberia2"]
-position = Vector2(267.75, 550)
+position = Vector2(180, 486)
 shape = SubResource("RectangleShape2D_rw70g")
 
 [node name="score" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="score"]
-position = Vector2(266.75, 273.5)
+position = Vector2(179, 214)
 shape = SubResource("RectangleShape2D_2fc1n")
 
 [connection signal="body_entered" from="tuberia1" to="." method="_on_tuberia_1_body_entered"]
