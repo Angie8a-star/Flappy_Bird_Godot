@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7o47jaw4hoqy"]
+[gd_scene load_steps=11 format=3 uid="uid://b7o47jaw4hoqy"]
 
 [ext_resource type="Script" uid="uid://doha4xpnctip7" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bp8ylueanynyk" path="res://FBAssets/FBsprites/base.png" id="1_uwrxv"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dbblpvw7dxnd" path="res://scenes/parallax_background.tscn" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bn83we6gmhhvu" path="res://FBAssets/FBsprites/message.png" id="5_p57ef"]
 [ext_resource type="Script" uid="uid://bua33dy4ffbgu" path="res://scenes/message.gd" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://de3hegqvsvx7t" path="res://FBAssets/FBsprites/gameover.png" id="7_u5sy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
-size = Vector2(397, 38)
+size = Vector2(397, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(394, 111)
@@ -28,15 +29,15 @@ autostart = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_lbhrr")]
 
-[node name="tope" type="StaticBody2D" parent="."]
+[node name="tope" type="StaticBody2D" parent="." groups=["superficies"]]
 position = Vector2(11, 2)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tope"]
-position = Vector2(184.5, 9)
+position = Vector2(184.5, -4)
 shape = SubResource("RectangleShape2D_yqjtg")
 
-[node name="suelo" type="StaticBody2D" parent="."]
+[node name="suelo" type="StaticBody2D" parent="." groups=["superficies"]]
 position = Vector2(167, 593)
 metadata/_edit_group_ = true
 
@@ -63,8 +64,12 @@ vertical_alignment = 1
 [node name="message" type="Sprite2D" parent="."]
 process_mode = 3
 z_index = 1
-position = Vector2(189, 302)
+position = Vector2(189, 312)
 texture = ExtResource("5_p57ef")
 script = ExtResource("6_u5sy4")
+
+[node name="game_over" type="Sprite2D" parent="message"]
+position = Vector2(0, -197)
+texture = ExtResource("7_u5sy4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
